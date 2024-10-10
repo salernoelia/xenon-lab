@@ -11,11 +11,32 @@ import SwiftUI
 @MainActor
 @Observable
 class AppModel {
+    /// immersive space
     let immersiveSpaceID = "ImmersiveSpace"
+    
     enum ImmersiveSpaceState {
         case closed
         case inTransition
         case open
     }
-    var immersiveSpaceState = ImmersiveSpaceState.closed
+    
+    var immersiveSpaceState: ImmersiveSpaceState = .closed
+    
+    /// tables
+    enum TableState {
+        case closed
+        case open(TablePosition)
+        case inTransition
+    }
+
+    enum TablePosition {
+        case left
+        case center
+        case right
+    }
+
+    var tableState: TableState = .closed
+
+    
+    
 }

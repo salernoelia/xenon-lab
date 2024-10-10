@@ -1,51 +1,20 @@
 #usda 1.0
 (
-    defaultPrim = "Root"
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.16.0.3)"
+    }
+    defaultPrim = "ExperimentTable"
     metersPerUnit = 1
     upAxis = "Y"
 )
 
-def Xform "Root"
+def "ExperimentTable" (
+    active = true
+    prepend references = @ExperimentTable.usda@
+)
 {
-    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial"]
-    def "SkyDome" (
-        active = true
-        prepend references = @SkyDome.usdz@
-    )
-    {
-        float3 xformOp:scale = (0.01, 0.01, 0.01)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
-
-    def Xform "Video_Dock" (
-        references = None
-    )
-    {
-        double3 xformOp:translate = (0, 0.8, -3)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-        def Xform "Player"
-        {
-            double3 xformOp:translate = (0, 0.6, 0)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-            def RealityKitComponent "CustomDockingRegion"
-            {
-                token info:id = "RealityKit.CustomDockingRegion"
-
-                def RealityKitStruct "m_bounds"
-                {
-                    float3 max = (1.2, 0.5, 0)
-                    float3 min = (-1.2, -0.5, -0)
-                }
-            }
-        }
-
-        def "Ground" (
-            prepend references = @Ground/Ground.usda@
-        )
-        {
-        }
-    }
+    float3 xformOp:scale = (1, 1, 1)
+    float3 xformOp:translate = (-0.1824615, 0, -0.016059697)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 }
 

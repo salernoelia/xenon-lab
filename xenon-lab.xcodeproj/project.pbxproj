@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E6F47E92CB80C7100B373DD /* UmainSpatialGestures in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6F47E82CB80C7100B373DD /* UmainSpatialGestures */; };
 		0EA8E48A2CB7F9AA00C8F14F /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 0EA8E4892CB7F9AA00C8F14F /* RealityKitContent */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E6F47E92CB80C7100B373DD /* UmainSpatialGestures in Frameworks */,
 				0EA8E48A2CB7F9AA00C8F14F /* RealityKitContent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,12 +73,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E6F47E72CB80C7100B373DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0EA8E47B2CB7F9AA00C8F14F = {
 			isa = PBXGroup;
 			children = (
 				0EA8E4862CB7F9AA00C8F14F /* xenon-lab */,
 				0EA8E4872CB7F9AA00C8F14F /* Packages */,
 				0EA8E4A62CB7F9AC00C8F14F /* xenon-labTests */,
+				0E6F47E72CB80C7100B373DD /* Frameworks */,
 				0EA8E4852CB7F9AA00C8F14F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +129,7 @@
 			name = "xenon-lab";
 			packageProductDependencies = (
 				0EA8E4892CB7F9AA00C8F14F /* RealityKitContent */,
+				0E6F47E82CB80C7100B373DD /* UmainSpatialGestures */,
 			);
 			productName = "xenon-lab";
 			productReference = 0EA8E4842CB7F9AA00C8F14F /* xenon-lab.app */;
@@ -175,6 +186,9 @@
 			);
 			mainGroup = 0EA8E47B2CB7F9AA00C8F14F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				0E6F47E62CB80C5A00B373DD /* XCRemoteSwiftPackageReference "UmainSpatialGestures" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0EA8E4852CB7F9AA00C8F14F /* Products */;
 			projectDirPath = "";
@@ -472,7 +486,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		0E6F47E62CB80C5A00B373DD /* XCRemoteSwiftPackageReference "UmainSpatialGestures" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Umain-Vision-Pro/UmainSpatialGestures";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		0E6F47E82CB80C7100B373DD /* UmainSpatialGestures */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E6F47E62CB80C5A00B373DD /* XCRemoteSwiftPackageReference "UmainSpatialGestures" */;
+			productName = UmainSpatialGestures;
+		};
 		0EA8E4892CB7F9AA00C8F14F /* RealityKitContent */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RealityKitContent;

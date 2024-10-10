@@ -1,0 +1,709 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.16.0.3)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Xform "Root"
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Cube "Cube" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Root/Cube/DefaultMaterial>
+            double size = 0.2
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (4, 4, 6)
+            float3 xformOp:translate = (0, 0.4001227, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:surface.connect = </Root/Root/Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (1, 1, 1)
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+
+            def RealityKitComponent "Collider"
+            {
+                uint group = 1
+                uniform token info:id = "RealityKit.Collider"
+                uint mask = 4294967295
+                token type = "Default"
+
+                def RealityKitStruct "Shape"
+                {
+                    float3 extent = (0.2, 0.2, 0.2)
+                    token shapeType = "Box"
+
+                    def RealityKitStruct "pose"
+                    {
+                    }
+                }
+            }
+
+            def RealityKitComponent "RigidBody"
+            {
+                bool gravityEnabled = 0
+                uniform token info:id = "RealityKit.RigidBody"
+                token motionType = "Static"
+
+                def RealityKitStruct "massFrame"
+                {
+                    def RealityKitStruct "m_pose"
+                    {
+                    }
+                }
+
+                def RealityKitStruct "material"
+                {
+                }
+            }
+        }
+
+        def "sample_tile_4" (
+            active = true
+            references = @sample-tile.usdz@
+        )
+        {
+            reorder nameChildren = ["Materials", "Geom", "Collider", "RigidBody", "InputTarget", "Sphere", "Cherenkov"]
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.082302645, 0.082302645, 0.082302645)
+            float3 xformOp:translate = (0, 0.84290576, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitComponent "Collider"
+            {
+                uint group = 1
+                uniform token info:id = "RealityKit.Collider"
+                uint mask = 4294967295
+                token type = "Default"
+
+                def RealityKitStruct "Shape"
+                {
+                    float3 extent = (2, 0.48286235, 2)
+                    token shapeType = "Box"
+
+                    def RealityKitStruct "pose"
+                    {
+                    }
+                }
+            }
+
+            def RealityKitComponent "RigidBody"
+            {
+                uniform token info:id = "RealityKit.RigidBody"
+                bool isCCDEnabled = 0
+                token motionType = "Dynamic"
+
+                def RealityKitStruct "massFrame"
+                {
+                    float m_mass = 0.015
+
+                    def RealityKitStruct "m_pose"
+                    {
+                    }
+                }
+
+                def RealityKitStruct "material"
+                {
+                    double dynamicFriction = 0
+                    double restitution = 0.3
+                    double staticFriction = 2
+                }
+            }
+
+            def RealityKitComponent "InputTarget"
+            {
+                uniform token info:id = "RealityKit.InputTarget"
+            }
+
+            def Sphere "Sphere" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Root/Material> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.05
+                quatf xformOp:orient = (0.99999994, 0, 0, 0)
+                float3 xformOp:scale = (12.150277, 12.150277, 12.150277)
+                float3 xformOp:translate = (0, 2.893201, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Root/sample_tile_4/Sphere/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (1, 1, 1)
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+
+                def RealityKitComponent "RigidBody"
+                {
+                    bool gravityEnabled = 0
+                    uniform token info:id = "RealityKit.RigidBody"
+                    token motionType = "Dynamic"
+
+                    def RealityKitStruct "massFrame"
+                    {
+                        def RealityKitStruct "m_pose"
+                        {
+                        }
+                    }
+
+                    def RealityKitStruct "material"
+                    {
+                    }
+                }
+
+                def RealityKitComponent "VFXEmitter"
+                {
+                    uniform token info:id = "RealityKit.VFXEmitter"
+
+                    def RealityKitStruct "currentState"
+                    {
+                        token birthLocation = "Volume"
+                        double emissionDuration = 3
+                        token emitterShape = "Sphere"
+
+                        def RealityKitStruct "mainEmitter"
+                        {
+                        }
+
+                        def RealityKitStruct "spawnedEmitter"
+                        {
+                        }
+                    }
+                }
+            }
+
+            over "Materials"
+            {
+                over "Material_001"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                }
+            }
+        }
+
+        def Material "Material"
+        {
+            token outputs:mtlx:surface.connect = </Root/Root/Material/PreviewSurface.outputs:out>
+            token outputs:realitykit:vertex
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.5, 100.5)
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+                color3f inputs:diffuseColor = (1, 1, 1) (
+                    colorSpace = "srgb_displayp3"
+                )
+                float inputs:metallic = 1
+                float inputs:roughness = 0
+                token outputs:out
+                float2 ui:nodegraph:node:pos = (93.5, 100.5)
+                int ui:nodegraph:node:stackingOrder = 9
+            }
+        }
+
+        def "sample_tile_5" (
+            active = true
+            references = @sample-tile.usdz@
+        )
+        {
+            reorder nameChildren = ["Materials", "Geom", "Collider", "RigidBody", "InputTarget", "Sphere"]
+            float2 ui:nodegraph:node:pos = (60, 60)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.082302645, 0.082302645, 0.082302645)
+            float3 xformOp:translate = (0.13820565, 0.84290576, -0.3833991)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitComponent "Collider"
+            {
+                uint group = 1
+                uniform token info:id = "RealityKit.Collider"
+                uint mask = 4294967295
+                token type = "Default"
+
+                def RealityKitStruct "Shape"
+                {
+                    float3 extent = (2, 0.48286235, 2)
+                    token shapeType = "Box"
+
+                    def RealityKitStruct "pose"
+                    {
+                    }
+                }
+            }
+
+            def RealityKitComponent "RigidBody"
+            {
+                uniform token info:id = "RealityKit.RigidBody"
+                bool isCCDEnabled = 0
+                token motionType = "Dynamic"
+
+                def RealityKitStruct "massFrame"
+                {
+                    float m_mass = 0.015
+
+                    def RealityKitStruct "m_pose"
+                    {
+                    }
+                }
+
+                def RealityKitStruct "material"
+                {
+                    double dynamicFriction = 0
+                    double restitution = 0.3
+                    double staticFriction = 2
+                }
+            }
+
+            def RealityKitComponent "InputTarget"
+            {
+                uniform token info:id = "RealityKit.InputTarget"
+            }
+
+            def Sphere "Sphere" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Root/Material> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.05
+                quatf xformOp:orient = (0.99999994, 0, 0, 0)
+                float3 xformOp:scale = (12.150277, 12.150277, 12.150277)
+                float3 xformOp:translate = (0, 2.893201, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Root/sample_tile_5/Sphere/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (1, 1, 1)
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+
+                def RealityKitComponent "RigidBody"
+                {
+                    bool gravityEnabled = 0
+                    uniform token info:id = "RealityKit.RigidBody"
+                    token motionType = "Dynamic"
+
+                    def RealityKitStruct "massFrame"
+                    {
+                        def RealityKitStruct "m_pose"
+                        {
+                        }
+                    }
+
+                    def RealityKitStruct "material"
+                    {
+                    }
+                }
+            }
+
+            over "Materials"
+            {
+                over "Material_001"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                }
+            }
+        }
+
+        def "sample_tile_6" (
+            active = true
+            references = @sample-tile.usdz@
+        )
+        {
+            reorder nameChildren = ["Materials", "Geom", "Collider", "RigidBody", "InputTarget", "Sphere"]
+            float2 ui:nodegraph:node:pos = (80, 80)
+            int ui:nodegraph:node:stackingOrder = 4
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.082302645, 0.082302645, 0.082302645)
+            float3 xformOp:translate = (0.13820565, 0.84290576, 0.31608647)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitComponent "Collider"
+            {
+                uint group = 1
+                uniform token info:id = "RealityKit.Collider"
+                uint mask = 4294967295
+                token type = "Default"
+
+                def RealityKitStruct "Shape"
+                {
+                    float3 extent = (2, 0.48286235, 2)
+                    token shapeType = "Box"
+
+                    def RealityKitStruct "pose"
+                    {
+                    }
+                }
+            }
+
+            def RealityKitComponent "RigidBody"
+            {
+                uniform token info:id = "RealityKit.RigidBody"
+                bool isCCDEnabled = 0
+                token motionType = "Dynamic"
+
+                def RealityKitStruct "massFrame"
+                {
+                    float m_mass = 0.015
+
+                    def RealityKitStruct "m_pose"
+                    {
+                    }
+                }
+
+                def RealityKitStruct "material"
+                {
+                    double dynamicFriction = 0
+                    double restitution = 0.3
+                    double staticFriction = 2
+                }
+            }
+
+            def RealityKitComponent "InputTarget"
+            {
+                uniform token info:id = "RealityKit.InputTarget"
+            }
+
+            def Sphere "Sphere" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Root/Material> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.05
+                quatf xformOp:orient = (0.99999994, 0, 0, 0)
+                float3 xformOp:scale = (12.150277, 12.150277, 12.150277)
+                float3 xformOp:translate = (0, 2.893201, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Root/sample_tile_6/Sphere/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (1, 1, 1)
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+
+                def RealityKitComponent "RigidBody"
+                {
+                    bool gravityEnabled = 0
+                    uniform token info:id = "RealityKit.RigidBody"
+                    token motionType = "Dynamic"
+
+                    def RealityKitStruct "massFrame"
+                    {
+                        def RealityKitStruct "m_pose"
+                        {
+                        }
+                    }
+
+                    def RealityKitStruct "material"
+                    {
+                    }
+                }
+            }
+
+            over "Materials"
+            {
+                over "Material_001"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                }
+            }
+        }
+
+        def "sample_tile_7" (
+            active = true
+            references = @sample-tile.usdz@
+        )
+        {
+            reorder nameChildren = ["Materials", "Geom", "Collider", "RigidBody", "InputTarget", "Sphere", "Cherenkov"]
+            float2 ui:nodegraph:node:pos = (60, 60)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.082302645, 0.082302645, 0.082302645)
+            float3 xformOp:translate = (-0.12647098, 0.84290576, 0.4594475)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitComponent "Collider"
+            {
+                uint group = 1
+                uniform token info:id = "RealityKit.Collider"
+                uint mask = 4294967295
+                token type = "Default"
+
+                def RealityKitStruct "Shape"
+                {
+                    float3 extent = (2, 0.48286235, 2)
+                    token shapeType = "Box"
+
+                    def RealityKitStruct "pose"
+                    {
+                    }
+                }
+            }
+
+            def RealityKitComponent "RigidBody"
+            {
+                uniform token info:id = "RealityKit.RigidBody"
+                bool isCCDEnabled = 0
+                token motionType = "Dynamic"
+
+                def RealityKitStruct "massFrame"
+                {
+                    float m_mass = 0.015
+
+                    def RealityKitStruct "m_pose"
+                    {
+                    }
+                }
+
+                def RealityKitStruct "material"
+                {
+                    double dynamicFriction = 0
+                    double restitution = 0.3
+                    double staticFriction = 2
+                }
+            }
+
+            def RealityKitComponent "InputTarget"
+            {
+                uniform token info:id = "RealityKit.InputTarget"
+            }
+
+            over "Materials"
+            {
+                over "Material_001"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                }
+            }
+
+            def "Cherenkov" (
+                active = true
+                references = @Cherenkov.usdz@
+            )
+            {
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.60751384, 0.60751384, 0.60751384)
+                float3 xformOp:translate = (0.6765761, 1.9087392, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                over "Materials"
+                {
+                    over "Water_02"
+                    {
+                        token outputs:mtlx:surface.connect = </Root/Root/sample_tile_7/Cherenkov/Materials/Water_02/PreviewSurface.outputs:out>
+                        token outputs:realitykit:vertex.connect = </Root/Root/sample_tile_7/Cherenkov/Materials/Water_02/GeometryModifier.outputs:out>
+                        token outputs:surface.connect = None
+                        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (772.4678, 375.09247)
+                        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 127
+
+                        over "surfaceShader" (
+                            active = false
+                        )
+                        {
+                        }
+
+                        def Shader "PreviewSurface"
+                        {
+                            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+                            color3f inputs:diffuseColor = (0.17884539, 0.90122455, 1) (
+                                colorSpace = "srgb_displayp3"
+                            )
+                            float3 inputs:normal
+                            float inputs:opacity = 0.5
+                            token outputs:out
+                            float2 ui:nodegraph:node:pos = (535.0754, 199.48691)
+                            int ui:nodegraph:node:stackingOrder = 132
+                            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:opacity"]
+                        }
+
+                        def Shader "Noise2D"
+                        {
+                            uniform token info:id = "ND_noise2d_float"
+                            float inputs:amplitude = 0.1
+                            float inputs:pivot
+                            float2 inputs:texcoord.connect = </Root/Root/sample_tile_7/Cherenkov/Materials/Water_02/Add.outputs:out>
+                            float outputs:out
+                            float2 ui:nodegraph:node:pos = (-52.232872, 535.03326)
+                            int ui:nodegraph:node:stackingOrder = 260
+                        }
+
+                        def Shader "TextureCoordinates"
+                        {
+                            uniform token info:id = "ND_texcoord_vector2"
+                            float2 outputs:out
+                            float2 ui:nodegraph:node:pos = (-642.47864, 391.34128)
+                            int ui:nodegraph:node:stackingOrder = 197
+                            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+                        }
+
+                        def Shader "Time"
+                        {
+                            uniform token info:id = "ND_time_float"
+                            float outputs:out
+                            float2 ui:nodegraph:node:pos = (-389.2461, 556.41016)
+                            int ui:nodegraph:node:stackingOrder = 78
+                        }
+
+                        def Shader "Add"
+                        {
+                            uniform token info:id = "ND_add_vector2FA"
+                            float2 inputs:in1.connect = </Root/Root/sample_tile_7/Cherenkov/Materials/Water_02/Multiply.outputs:out>
+                            float inputs:in2.connect = </Root/Root/sample_tile_7/Cherenkov/Materials/Water_02/Time.outputs:out>
+                            float2 outputs:out
+                            float2 ui:nodegraph:node:pos = (-196.98047, 533.1133)
+                            int ui:nodegraph:node:stackingOrder = 79
+                        }
+
+                        def Shader "GeometryModifier"
+                        {
+                            uniform token info:id = "ND_realitykit_geometrymodifier_2_0_vertexshader"
+                            float3 inputs:bitangent
+                            color4f inputs:color
+                            float3 inputs:modelPositionOffset.connect = </Root/Root/sample_tile_7/Cherenkov/Materials/Water_02/Combine3.outputs:out>
+                            float3 inputs:normal
+                            float2 inputs:uv0
+                            float2 inputs:uv1
+                            float4 inputs:uv2
+                            float4 inputs:uv6
+                            float4 inputs:uv7
+                            token outputs:out
+                            float2 ui:nodegraph:node:pos = (465.854, 506.7387)
+                            int ui:nodegraph:node:stackingOrder = 122
+                            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+                        }
+
+                        def Shader "Combine3"
+                        {
+                            uniform token info:id = "ND_combine3_vector3"
+                            float inputs:in1
+                            float inputs:in2.connect = </Root/Root/sample_tile_7/Cherenkov/Materials/Water_02/Noise2D.outputs:out>
+                            float inputs:in3
+                            float3 outputs:out
+                            float2 ui:nodegraph:node:pos = (175.78906, 525.77344)
+                            int ui:nodegraph:node:stackingOrder = 124
+                        }
+
+                        def Shader "ConstantFloat"
+                        {
+                            uniform token info:id = "ND_constant_float"
+                            float inputs:value = 15
+                            float outputs:out
+                            float2 ui:nodegraph:node:pos = (-602.16797, 492.95312)
+                            int ui:nodegraph:node:stackingOrder = 220
+                        }
+
+                        def Shader "Multiply"
+                        {
+                            uniform token info:id = "ND_multiply_vector2FA"
+                            float2 inputs:in1.connect = </Root/Root/sample_tile_7/Cherenkov/Materials/Water_02/TextureCoordinates.outputs:out>
+                            float inputs:in2.connect = </Root/Root/sample_tile_7/Cherenkov/Materials/Water_02/ConstantFloat.outputs:out>
+                            float2 outputs:out
+                            float2 ui:nodegraph:node:pos = (-285.22266, 352.47266)
+                            int ui:nodegraph:node:stackingOrder = 205
+                        }
+                    }
+
+                    over "Material_002"
+                    {
+                        token outputs:mtlx:surface
+                        token outputs:realitykit:vertex
+                    }
+
+                    over "Black_Metal_Paint"
+                    {
+                        token outputs:mtlx:surface
+                        token outputs:realitykit:vertex
+                    }
+
+                    over "Matal_solid_paint_white"
+                    {
+                        token outputs:mtlx:surface
+                        token outputs:realitykit:vertex
+                    }
+                }
+
+                def RealityKitComponent "RigidBody"
+                {
+                    bool gravityEnabled = 0
+                    uniform token info:id = "RealityKit.RigidBody"
+
+                    def RealityKitStruct "massFrame"
+                    {
+                        def RealityKitStruct "m_pose"
+                        {
+                        }
+                    }
+
+                    def RealityKitStruct "material"
+                    {
+                    }
+                }
+            }
+        }
+    }
+}
+
