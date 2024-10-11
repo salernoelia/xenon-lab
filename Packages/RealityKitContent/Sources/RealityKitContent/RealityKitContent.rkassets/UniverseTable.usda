@@ -24,6 +24,7 @@ def Xform "Root"
             prepend apiSchemas = ["MaterialBindingAPI"]
         )
         {
+            reorder nameChildren = ["Cherenkov", "DefaultMaterial", "Collider", "RigidBody"]
             rel material:binding = </Root/Root/Cube/DefaultMaterial>
             double size = 0.2
             quatf xformOp:orient = (1, 0, 0, 0)
@@ -33,6 +34,8 @@ def Xform "Root"
 
             def Material "DefaultMaterial"
             {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
                 token outputs:surface.connect = </Root/Root/Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
 
                 def Shader "DefaultSurfaceShader"
@@ -86,7 +89,7 @@ def Xform "Root"
             references = @sample-tile.usdz@
         )
         {
-            reorder nameChildren = ["Materials", "Geom", "Collider", "RigidBody", "InputTarget", "Sphere"]
+            reorder nameChildren = ["Materials", "Geom", "Collider", "RigidBody", "InputTarget", "Sphere", "Cherenkov"]
             float2 ui:nodegraph:node:pos = (40, 40)
             int ui:nodegraph:node:stackingOrder = 2
             quatf xformOp:orient = (1, 0, 0, 0)
@@ -215,6 +218,24 @@ def Xform "Root"
                     token outputs:mtlx:surface
                     token outputs:realitykit:vertex
                 }
+
+                over "Material"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                }
+            }
+
+            def "Cherenkov" (
+                active = true
+                references = @Cherenkov.usdz@
+            )
+            {
+                int ui:nodegraph:node:stackingOrder = 1
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (6.2004275, 6.2004275, 6.2004275)
+                float3 xformOp:translate = (6.597844, -0.2130213, -4.551324)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
             }
         }
 
@@ -360,7 +381,7 @@ def Xform "Root"
             references = @sample-tile.usdz@
         )
         {
-            reorder nameChildren = ["Materials", "Geom", "Collider", "RigidBody", "InputTarget", "Sphere"]
+            reorder nameChildren = ["Cherenkov", "Materials", "Geom", "Collider", "RigidBody", "InputTarget", "Sphere"]
             float2 ui:nodegraph:node:pos = (80, 80)
             int ui:nodegraph:node:stackingOrder = 4
             quatf xformOp:orient = (1, 0, 0, 0)
@@ -414,6 +435,15 @@ def Xform "Root"
                 uniform token info:id = "RealityKit.InputTarget"
             }
 
+            over "Materials"
+            {
+                over "Material_001"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                }
+            }
+
             def Sphere "Sphere" (
                 active = true
                 prepend apiSchemas = ["MaterialBindingAPI"]
@@ -459,15 +489,6 @@ def Xform "Root"
                     def RealityKitStruct "material"
                     {
                     }
-                }
-            }
-
-            over "Materials"
-            {
-                over "Material_001"
-                {
-                    token outputs:mtlx:surface
-                    token outputs:realitykit:vertex
                 }
             }
         }

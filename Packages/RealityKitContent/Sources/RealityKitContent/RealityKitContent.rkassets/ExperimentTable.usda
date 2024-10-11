@@ -10,6 +10,7 @@
 
 def Xform "Root"
 {
+    reorder nameChildren = ["Root", "ParticleEmitter", "collisionPlate1", "plate1", "collisionPlate2", "plate2"]
     def Xform "Root"
     {
         float2 ui:nodegraph:node:pos = (20, 20)
@@ -27,7 +28,7 @@ def Xform "Root"
             rel material:binding = </Root/Root/Cube/DefaultMaterial>
             double size = 0.2
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (4, 4, 6)
+            float3 xformOp:scale = (4, 4, 10)
             float3 xformOp:translate = (0, 0.4001227, 0)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
@@ -90,8 +91,8 @@ def Xform "Root"
             float2 ui:nodegraph:node:pos = (40, 40)
             int ui:nodegraph:node:stackingOrder = 2
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.082302645, 0.082302645, 0.082302645)
-            float3 xformOp:translate = (0, 0.84290576, 0)
+            float3 xformOp:scale = (0.07, 0.07, 0.07)
+            float3 xformOp:translate = (0, 0.84290576, -0.73335725)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
             def RealityKitComponent "Collider"
@@ -247,8 +248,8 @@ def Xform "Root"
             float2 ui:nodegraph:node:pos = (60, 60)
             int ui:nodegraph:node:stackingOrder = 3
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.082302645, 0.082302645, 0.082302645)
-            float3 xformOp:translate = (0.13820565, 0.84290576, -0.3833991)
+            float3 xformOp:scale = (0.07, 0.07, 0.07)
+            float3 xformOp:translate = (0.23337495, 0.84290576, -0.730438)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
             def RealityKitComponent "Collider"
@@ -364,8 +365,8 @@ def Xform "Root"
             float2 ui:nodegraph:node:pos = (80, 80)
             int ui:nodegraph:node:stackingOrder = 4
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.082302645, 0.082302645, 0.082302645)
-            float3 xformOp:translate = (0.13820565, 0.84290576, 0.31608647)
+            float3 xformOp:scale = (0.07, 0.07, 0.07)
+            float3 xformOp:translate = (0.13820565, 0.84290576, 0.75461864)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
             def RealityKitComponent "Collider"
@@ -460,6 +461,12 @@ def Xform "Root"
                     {
                     }
                 }
+
+                def RealityKitComponent "PointLight"
+                {
+                    uniform token info:id = "RealityKit.PointLight"
+                    float intensity = 1000
+                }
             }
 
             over "Materials"
@@ -469,6 +476,11 @@ def Xform "Root"
                     token outputs:mtlx:surface
                     token outputs:realitykit:vertex
                 }
+            }
+
+            def RealityKitComponent "RCP_BehaviorsContainer"
+            {
+                uniform token info:id = "RCP.BehaviorsContainer"
             }
         }
 
@@ -481,8 +493,8 @@ def Xform "Root"
             float2 ui:nodegraph:node:pos = (60, 60)
             int ui:nodegraph:node:stackingOrder = 3
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.082302645, 0.082302645, 0.082302645)
-            float3 xformOp:translate = (-0.12647098, 0.84290576, 0.4594475)
+            float3 xformOp:scale = (0.07, 0.07, 0.07)
+            float3 xformOp:translate = (-0.12647098, 0.84290576, 0.7013312)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
             def RealityKitComponent "Collider"
@@ -701,6 +713,184 @@ def Xform "Root"
                     def RealityKitStruct "material"
                     {
                     }
+                }
+            }
+        }
+    }
+
+    def Xform "ParticleEmitter"
+    {
+        float3 xformOp:scale = (5, 5, 5)
+        float3 xformOp:translate = (0, 1.5214839, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "VFXEmitter"
+        {
+            token info:id = "RealityKit.VFXEmitter"
+
+            def RealityKitStruct "currentState"
+            {
+                token birthLocation = "Vertices"
+                int64 burstCount = 50
+                int64 burstCountVariation = 5
+                token emitterShape = "Sphere"
+                bool isLocal = 0
+                bool isLocalFields = 0
+                float particleSpeed = 0.05
+                float3 shapeSize = (1, 1, 1)
+                token spawnOccasion = "OnBirth"
+                float spawnVelocityFactor = 0.1
+
+                def RealityKitStruct "mainEmitter"
+                {
+                    token billboardMode = "Free"
+                    float birthRate = 100
+                    float4 endColorA = (0.0013006331, 0.032195132, 1, 1)
+                    double particleLifeSpan = 5
+                    float particleMass = 5
+                    float4 startColorA = (1, 0.5326402, 0.5510621, 1)
+                    bool useEndColor = 0
+                    bool useEndColorRange = 0
+                    bool useStartColorRange = 0
+                }
+
+                def RealityKitStruct "spawnedEmitter"
+                {
+                }
+            }
+        }
+    }
+
+    def Cylinder "plate1" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        reorder nameChildren = ["InvisibleCollisionMaterial", "plate1material"]
+        uniform token axis = "Y"
+        double height = 0.2
+        rel material:binding = </Root/plate1/plate1material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 0.1
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1.4018201, 0.007035497, 1.4018201)
+        float3 xformOp:translate = (0, 0.80199134, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "plate1material"
+        {
+            token outputs:mtlx:surface.connect = </Root/plate1/plate1material/PreviewSurface.outputs:out>
+            token outputs:realitykit:vertex
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.25, 100.5)
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+                color3f inputs:diffuseColor = (1, 0.5763723, 0) (
+                    colorSpace = "srgb_texture"
+                )
+                token outputs:out
+                float2 ui:nodegraph:node:pos = (93.5, 100.5)
+                int ui:nodegraph:node:stackingOrder = 2
+            }
+        }
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 1
+            token type = "Trigger"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (0.2, 0.2, 0.2)
+                float height = 0.2
+                float radius = 0.5
+                token shapeType = "Capsule"
+
+                def RealityKitStruct "pose"
+                {
+                }
+            }
+        }
+    }
+
+    def Cylinder "plate2" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        reorder nameChildren = ["InvisibleCollisionMaterial", "plate2material"]
+        uniform token axis = "Y"
+        double height = 0.2
+        rel material:binding = </Root/plate2/plate2material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 0.1
+        float2 ui:nodegraph:node:pos = (40, 40)
+        int ui:nodegraph:node:stackingOrder = 2
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (2.9994454, 0.015053708, 2.9994454)
+        float3 xformOp:translate = (0, 0.8001789, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "InvisibleCollisionMaterial" (
+            active = false
+        )
+        {
+            token outputs:mtlx:surface
+            token outputs:realitykit:vertex
+            token outputs:surface.connect = </Root/plate2/InvisibleCollisionMaterial/DefaultSurfaceShader.outputs:surface>
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (0, 110.5)
+
+            def Shader "DefaultSurfaceShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                float inputs:opacity = 0
+                float inputs:roughness = 0.75
+                token outputs:surface
+            }
+        }
+
+        def Material "plate2material"
+        {
+            token outputs:mtlx:surface.connect = </Root/plate2/plate2material/PreviewSurface.outputs:out>
+            token outputs:realitykit:vertex
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.25, 100.5)
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+                color3f inputs:diffuseColor = (0.016804177, 0.198351, 1) (
+                    colorSpace = "srgb_texture"
+                )
+                token outputs:out
+                float2 ui:nodegraph:node:pos = (93.5, 100.5)
+                int ui:nodegraph:node:stackingOrder = 2
+            }
+        }
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 1
+            token type = "Trigger"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (0.2, 0.2, 0.2)
+                float height = 0.2
+                float radius = 0.1
+                token shapeType = "Capsule"
+
+                def RealityKitStruct "pose"
+                {
                 }
             }
         }
