@@ -24,8 +24,7 @@
       [
         "21F35596-F8B1-48CF-9DC4-DB4DB8E33366",
         "Root",
-        "plate1",
-        "plate1material"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -35,7 +34,16 @@
         "21F35596-F8B1-48CF-9DC4-DB4DB8E33366",
         "Root",
         "Root",
-        "sample_tile_5"
+        "sample_tile_5",
+        "Sphere"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "21F35596-F8B1-48CF-9DC4-DB4DB8E33366",
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -55,6 +63,15 @@
       [
         "21F35596-F8B1-48CF-9DC4-DB4DB8E33366",
         "Root",
+        "plate1"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "21F35596-F8B1-48CF-9DC4-DB4DB8E33366",
+        "Root",
         "Root",
         "sample_tile_7"
       ],
@@ -65,7 +82,8 @@
       [
         "21F35596-F8B1-48CF-9DC4-DB4DB8E33366",
         "Root",
-        "plate1"
+        "Root",
+        "sample_tile_5"
       ],
       {
         "isExpanded" : true,
@@ -73,7 +91,9 @@
       },
       [
         "21F35596-F8B1-48CF-9DC4-DB4DB8E33366",
-        "Root"
+        "Root",
+        "plate1",
+        "plate1material"
       ],
       {
         "isExpanded" : true,
@@ -88,26 +108,6 @@
       {
         "isExpanded" : true,
         "isLocked" : false
-      },
-      [
-        "21F35596-F8B1-48CF-9DC4-DB4DB8E33366",
-        "Root",
-        "Root",
-        "sample_tile_5",
-        "Sphere"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "21F35596-F8B1-48CF-9DC4-DB4DB8E33366",
-        "Root",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
       }
     ]
   },
@@ -117,8 +117,61 @@
         "9B9257BC-614D-4561-9BBE-F75996143A9D",
         "Root",
         "Root",
+        "sample_tile_7",
+        "Cherenkov",
+        "Geom"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9B9257BC-614D-4561-9BBE-F75996143A9D",
+        "Root",
+        "Root",
+        "sample_tile_7",
+        "Cherenkov",
+        "Materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9B9257BC-614D-4561-9BBE-F75996143A9D",
+        "Root",
+        "Root",
+        "Cube"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9B9257BC-614D-4561-9BBE-F75996143A9D",
+        "Root",
+        "Root",
         "sample_tile_4",
         "Sphere"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9B9257BC-614D-4561-9BBE-F75996143A9D",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9B9257BC-614D-4561-9BBE-F75996143A9D",
+        "Root",
+        "Root",
+        "sample_tile_6",
+        "Geom"
       ],
       {
         "isExpanded" : true,
@@ -148,57 +201,6 @@
         "9B9257BC-614D-4561-9BBE-F75996143A9D",
         "Root",
         "Root",
-        "sample_tile_4"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "9B9257BC-614D-4561-9BBE-F75996143A9D",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "9B9257BC-614D-4561-9BBE-F75996143A9D",
-        "Root",
-        "Root",
-        "sample_tile_6",
-        "Geom"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "9B9257BC-614D-4561-9BBE-F75996143A9D",
-        "Root",
-        "Root",
-        "sample_tile_6"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "9B9257BC-614D-4561-9BBE-F75996143A9D",
-        "Root",
-        "Root",
-        "sample_tile_7",
-        "Cherenkov",
-        "Geom"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "9B9257BC-614D-4561-9BBE-F75996143A9D",
-        "Root",
-        "Root",
         "sample_tile_4",
         "Materials"
       ],
@@ -210,9 +212,7 @@
         "9B9257BC-614D-4561-9BBE-F75996143A9D",
         "Root",
         "Root",
-        "sample_tile_7",
-        "Cherenkov",
-        "Materials"
+        "sample_tile_4"
       ],
       {
         "isExpanded" : true,
@@ -222,7 +222,7 @@
         "9B9257BC-614D-4561-9BBE-F75996143A9D",
         "Root",
         "Root",
-        "Cube"
+        "sample_tile_6"
       ],
       {
         "isExpanded" : true,
@@ -246,6 +246,42 @@
     "objectMetadataList" : [
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "ExperimentTable"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "ExperimentTable",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Video_Dock"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
         "SkyDome"
       ],
@@ -257,20 +293,10 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
-        "sample_tile_4",
-        "Geom"
+        "Material"
       ],
       {
         "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root"
-      ],
-      {
-        "disallowsFraming" : false,
-        "isExpanded" : false,
         "isLocked" : false
       },
       [
@@ -287,27 +313,7 @@
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
         "sample_tile_4",
-        "Sphere"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Material"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "sample_tile_4",
-        "Geom",
-        "Cube"
+        "Geom"
       ],
       {
         "isExpanded" : true,
@@ -324,11 +330,30 @@
       },
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Video_Dock"
+        "ExperimentTable_1"
       ],
       {
-        "disallowsFraming" : false,
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "sample_tile_4",
+        "Sphere"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "sample_tile_4",
+        "Geom",
+        "Cube"
+      ],
+      {
         "isExpanded" : true,
         "isLocked" : false
       }
@@ -339,9 +364,47 @@
       [
         "FFEA1E90-01EC-4C93-AA56-A015544CCDF5",
         "Root",
+        "Cherenkov",
+        "Materials",
+        "Water_02"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FFEA1E90-01EC-4C93-AA56-A015544CCDF5",
         "Root",
-        "sample_tile_4",
+        "Root",
+        "sample_tile_4"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FFEA1E90-01EC-4C93-AA56-A015544CCDF5",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FFEA1E90-01EC-4C93-AA56-A015544CCDF5",
+        "Root",
+        "Cherenkov",
         "Geom"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FFEA1E90-01EC-4C93-AA56-A015544CCDF5",
+        "Root",
+        "Cherenkov",
+        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -353,6 +416,17 @@
         "Root",
         "sample_tile_4",
         "Sphere"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FFEA1E90-01EC-4C93-AA56-A015544CCDF5",
+        "Root",
+        "Root",
+        "sample_tile_4",
+        "Geom"
       ],
       {
         "isExpanded" : true,
@@ -371,56 +445,7 @@
       [
         "FFEA1E90-01EC-4C93-AA56-A015544CCDF5",
         "Root",
-        "Root",
-        "sample_tile_4"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FFEA1E90-01EC-4C93-AA56-A015544CCDF5",
-        "Root",
         "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FFEA1E90-01EC-4C93-AA56-A015544CCDF5",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FFEA1E90-01EC-4C93-AA56-A015544CCDF5",
-        "Root",
-        "Cherenkov",
-        "Materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FFEA1E90-01EC-4C93-AA56-A015544CCDF5",
-        "Root",
-        "Cherenkov",
-        "Geom"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FFEA1E90-01EC-4C93-AA56-A015544CCDF5",
-        "Root",
-        "Cherenkov",
-        "Materials",
-        "Water_02"
       ],
       {
         "isExpanded" : true,
